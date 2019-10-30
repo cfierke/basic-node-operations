@@ -1,0 +1,169 @@
+Questions
+
+1. Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
+
+A: sort: The sort command takes an input file and prints the contents of the file in numeric and then alphabetical order. The commands.js was sorted in alphabetical order. It was interesting to see that the lines with the most spaces were in the front of the list and not at the end. This is because spaces are the default separator and therefore come first (-b parameter resolves this).
+
+Output:
+      break;
+      break;
+      commandLibrary.cat(userInputArray.slice(1));
+      commandLibrary.echo(userInputArray.slice(1).join(' '));
+      done(data);
+      if (err) throw err;
+    });
+    case 'cat':
+    case 'echo':
+    const fileName = fullPath[0];
+    done(userInput);
+    fs.readFile(fileName, (err, data) => {
+  }
+  }
+  },
+  'cat': function(fullPath) {
+  const command = userInputArray[0];
+  const userInputArray = userInput.split(' ');
+  'echo': function(userInput) {
+  process.stdout.write('\nprompt > ');
+  process.stdout.write(output);
+  switch (command) {
+
+
+
+
+
+
+
+}
+}
+};
+const commandLibrary = {
+const fs = require('fs');
+function done(output) {
+function evaluateCmd(userInput) {
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+
+
+wc: Stands for word count. It lists the newline count, word count, byte count and the name of the file in that order. The output of the commands.js states that there are 38 newlines and 73 words using 824 bytes.
+
+Output:
+38  73 824 commands.js
+
+
+uniq: uniq takes an input file and returns the file with any identical adjacent lines removed. The commands.js does not have any identical adjacent lines and therefore the output is the same as the input.  
+
+Output:
+const fs = require('fs');
+
+function done(output) {
+  process.stdout.write(output);
+  process.stdout.write('\nprompt > ');
+}
+
+function evaluateCmd(userInput) {
+
+  const userInputArray = userInput.split(' ');
+  const command = userInputArray[0];
+
+  switch (command) {
+    case 'echo':
+      commandLibrary.echo(userInputArray.slice(1).join(' '));
+      break;
+    case 'cat':
+      commandLibrary.cat(userInputArray.slice(1));
+      break;
+  }
+}
+
+const commandLibrary = {
+  'echo': function(userInput) {
+    done(userInput);
+  },
+
+  'cat': function(fullPath) {
+    const fileName = fullPath[0];
+    fs.readFile(fileName, (err, data) => {
+      if (err) throw err;
+      done(data);
+    });
+  }
+};
+
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+
+
+2. Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and why the specific data was outputted.
+
+A: I used sort and uniq as the two commands for this exercise. The output was a sorted list of the contents of the commands.js with all adjacent identical lines removed. Because commands.js was sorted before the uniq command, all of the identical lines within commands.js have been removed, whether they were originally adjacent to one another or not.
+
+sort commands.js | uniq
+Output:
+ break;
+      commandLibrary.cat(userInputArray.slice(1));
+      commandLibrary.echo(userInputArray.slice(1).join(' '));
+      commandLibrary.error(userInputArray.join(' '));
+      commandLibrary.head(userInputArray.slice(1));
+      commandLibrary.tail(userInputArray.slice(1));
+      dataArray = data.toString().split('\n');
+      done(data);
+      done(dataArray.slice(0, 10).join('\n'));
+      done(dataArray.slice(dataArray.length - 10).join('\n'));
+      if (err) throw err;
+    });
+    case 'cat':
+    case 'echo':
+    case 'head':
+    case 'tail':
+    const fileName = fullPath[0];
+    default:
+    done(`Error, no such command: ${userInput}`)
+    done(userInput);
+    fs.readFile(fileName, (err, data) => {
+    let dataArray = [];
+  }
+  },
+  'cat': function(fullPath) {
+  const command = userInputArray[0];
+  const userInputArray = userInput.split(' ');
+  'echo': function(userInput) {
+  'error': function(userInput) {
+  'head': function(fullPath) {
+  process.stdout.write('\nprompt > ');
+  process.stdout.write(output);
+  switch (command) {
+  'tail': function(fullPath) {
+
+}
+};
+const commandLibrary = {
+const fs = require('fs');
+function done(output) {
+function evaluateCmd(userInput) {
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+
+
+6. Reverse String
+
+Given a string, reverse the order of characters in each word within a sentence while maintaining the original word order and whitespace and return the string. To improve your problem-solving experience, use the suggested functions to solve the problem.
+
+A:
+
+function reverseString(inputString) {
+ let reverseArray = [];
+ let toArray = inputString.split(' ');
+ 
+ toArray.forEach((element) => {
+   element = element.split('')
+   .reverse()
+   .join('');
+ 
+   reverseArray.push(element);
+ });
+ 
+ return reverseArray.join(' ');
+};
+ 
+reverseString(`I'm learning to program algorithms!`);
